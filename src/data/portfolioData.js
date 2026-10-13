@@ -3,7 +3,7 @@ export const portfolioData = {
     name: "Lautaro Barrera",
     shortName: "LB.",
     role: "Full Stack Developer & Software Engineer",
-    punchline: "Desarrollador Web",
+    punchline: "Programador Web",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     location: "Argentina (Berisso, Buenos Aires)",
     email: "lautaro.barrera.dev@gmail.com",
