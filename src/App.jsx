@@ -47,7 +47,8 @@ export function App() {
       {/* Header Superior con LB, Modo Claro/Oscuro y CV */}
       <Navbar 
         isDark={isDark} 
-        setIsDark={setIsDark} 
+        setIsDark={setIsDark}
+        activeSection={activeSection}
       />
 
       {/* Contenedor Principal con Sidebar y Secciones */}
