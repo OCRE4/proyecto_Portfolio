@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
-import { Mail, Send, Check, Copy, MessageSquare, ArrowRight } from 'lucide-react';
+import { Mail, Check, Copy, MessageSquare, ArrowRight } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import { GithubIcon } from './Icons';
+
+const LinkedInIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+  </svg>
+);
 
 export const Contact = ({ isDark }) => {
   const [copied, setCopied] = useState(false);
-  const [formSent, setFormSent] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(portfolioData.personal.email);
@@ -13,15 +18,22 @@ export const Contact = ({ isDark }) => {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
-    setFormSent(true);
-    setTimeout(() => {
-      setFormSent(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 4000);
-  };
+  const socials = [
+    {
+      label: 'LinkedIn',
+      url: portfolioData.personal.linkedin,
+      icon: <LinkedInIcon className="w-5 h-5" />,
+      color: 'text-[#0A66C2] bg-[#0A66C2]/10 hover:bg-[#0A66C2] hover:text-white border-[#0A66C2]/20 hover:border-[#0A66C2]',
+    },
+    {
+      label: 'GitHub',
+      url: portfolioData.personal.github,
+      icon: <GithubIcon className="w-5 h-5" />,
+      color: isDark
+        ? 'text-slate-200 bg-white/5 hover:bg-white hover:text-slate-900 border-white/10 hover:border-white'
+        : 'text-slate-800 bg-slate-100 hover:bg-slate-900 hover:text-white border-slate-200 hover:border-slate-900',
+    },
+  ];
 
   return (
     <section id="contact" className={`py-16 border-t scroll-mt-24 ${
@@ -43,142 +55,73 @@ export const Contact = ({ isDark }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-10">
-        {/* Info Column */}
-        <div className="lg:col-span-2 space-y-6">
-          <div className={`p-6 rounded-2xl border ${
-            isDark ? 'bg-white/[0.03] border-white/10' : 'bg-white border-slate-200 shadow-sm'
+      <div className="flex flex-col gap-6 mb-10 max-w-lg">
+        {/* Email card */}
+        <div className={`p-6 rounded-2xl border ${
+          isDark ? 'bg-white/[0.03] border-white/10' : 'bg-white border-slate-200 shadow-sm'
+        }`}>
+          <h3 className={`font-bebas text-2xl tracking-wide mb-3 ${
+            isDark ? 'text-white' : 'text-slate-900'
           }`}>
-            <h3 className={`font-bebas text-2xl tracking-wide mb-3 ${
-              isDark ? 'text-white' : 'text-slate-900'
-            }`}>
-              Información de Contacto
-            </h3>
-            <p className={`text-sm leading-relaxed mb-6 ${
-              isDark ? 'text-slate-300' : 'text-slate-600'
-            }`}>
-              Estoy disponible para nuevas oportunidades, desarrollo de software, colaboraciones y proyectos freelance.
-            </p>
+            Información de Contacto
+          </h3>
+          <p className={`text-sm leading-relaxed mb-6 ${
+            isDark ? 'text-slate-300' : 'text-slate-600'
+          }`}>
+            Estoy disponible para nuevas oportunidades, desarrollo de software, colaboraciones y proyectos freelance.
+          </p>
 
-            <div className={`p-4 rounded-xl border flex items-center justify-between gap-3 ${
-              isDark ? 'bg-white/5 border-white/10' : 'bg-slate-50 border-slate-200'
-            }`}>
-              <div className="truncate">
-                <span className={`text-xs block font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                  Correo Directo
-                </span>
-                <span className={`text-sm font-mono truncate block ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                  {portfolioData.personal.email}
-                </span>
-              </div>
-              <button
-                type="button"
-                onClick={handleCopyEmail}
-                className="p-2.5 rounded-lg bg-[#3B83F7]/20 hover:bg-[#3B83F7] text-[#3B83F7] hover:text-white transition-all shrink-0"
-                title="Copiar correo"
-              >
-                {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
-              </button>
+          <div className={`p-4 rounded-xl border flex items-center justify-between gap-3 ${
+            isDark ? 'bg-white/5 border-white/10' : 'bg-slate-50 border-slate-200'
+          }`}>
+            <div className="flex items-center gap-3 truncate">
+              <Mail className="w-4 h-4 text-[#3B83F7] shrink-0" />
+              <span className={`text-sm font-mono truncate ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                {portfolioData.personal.email}
+              </span>
             </div>
-            {copied && (
-              <p className="text-xs text-emerald-500 mt-2 font-medium">¡Correo copiado al portapapeles!</p>
-            )}
+            <button
+              type="button"
+              onClick={handleCopyEmail}
+              className="p-2.5 rounded-lg bg-[#3B83F7]/20 hover:bg-[#3B83F7] text-[#3B83F7] hover:text-white transition-all shrink-0"
+              title="Copiar correo"
+            >
+              {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
+            </button>
           </div>
+          {copied && (
+            <p className="text-xs text-emerald-500 mt-2 font-medium">¡Correo copiado al portapapeles!</p>
+          )}
         </div>
 
-        {/* Form Column */}
-        <div className="lg:col-span-3">
-          <div className={`p-6 sm:p-8 rounded-2xl border ${
-            isDark ? 'bg-white/[0.03] border-white/10' : 'bg-white border-slate-200 shadow-sm'
+        {/* Social links */}
+        <div className={`p-6 rounded-2xl border ${
+          isDark ? 'bg-white/[0.03] border-white/10' : 'bg-white border-slate-200 shadow-sm'
+        }`}>
+          <h3 className={`font-bebas text-2xl tracking-wide mb-4 ${
+            isDark ? 'text-white' : 'text-slate-900'
           }`}>
-            {formSent ? (
-              <div className="py-12 text-center space-y-3">
-                <div className="w-12 h-12 mx-auto rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center">
-                  <Check className="w-6 h-6" />
-                </div>
-                <h4 className={`font-bebas text-2xl tracking-wide ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                  ¡Mensaje Enviado con Éxito!
-                </h4>
-                <p className={`text-sm ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                  Gracias por escribir. Me pondré en contacto contigo lo antes posible.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className={`block text-xs font-medium uppercase tracking-wider mb-1.5 ${
-                    isDark ? 'text-slate-400' : 'text-slate-600'
-                  }`}>
-                    Tu Nombre
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className={`w-full px-4 py-3 rounded-xl border transition-all text-sm focus:outline-none focus:border-[#3B83F7] focus:ring-1 focus:ring-[#3B83F7] ${
-                      isDark 
-                        ? 'bg-white/5 border-white/10 text-white placeholder-slate-500' 
-                        : 'bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400'
-                    }`}
-                  />
-                </div>
-
-                <div>
-                  <label className={`block text-xs font-medium uppercase tracking-wider mb-1.5 ${
-                    isDark ? 'text-slate-400' : 'text-slate-600'
-                  }`}>
-                    Tu Correo Electrónico
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="ejemplo@correo.com"
-                    className={`w-full px-4 py-3 rounded-xl border transition-all text-sm focus:outline-none focus:border-[#3B83F7] focus:ring-1 focus:ring-[#3B83F7] ${
-                      isDark 
-                        ? 'bg-white/5 border-white/10 text-white placeholder-slate-500' 
-                        : 'bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400'
-                    }`}
-                  />
-                </div>
-
-                <div>
-                  <label className={`block text-xs font-medium uppercase tracking-wider mb-1.5 ${
-                    isDark ? 'text-slate-400' : 'text-slate-600'
-                  }`}>
-                    Mensaje o Propuesta
-                  </label>
-                  <textarea
-                    rows={4}
-                    required
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Cuéntame sobre tu proyecto o consulta..."
-                    className={`w-full px-4 py-3 rounded-xl border transition-all text-sm resize-none focus:outline-none focus:border-[#3B83F7] focus:ring-1 focus:ring-[#3B83F7] ${
-                      isDark 
-                        ? 'bg-white/5 border-white/10 text-white placeholder-slate-500' 
-                        : 'bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400'
-                    }`}
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full font-bebas text-lg tracking-wider bg-[#3B83F7] hover:bg-[#2563eb] text-white py-3.5 px-6 rounded-xl transition-all duration-300 shadow-md glow-blue hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2"
-                >
-                  <Send className="w-4 h-4" />
-                  <span>Enviar Mensaje</span>
-                </button>
-              </form>
-            )}
+            Redes
+          </h3>
+          <div className="flex flex-wrap gap-3">
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl border text-sm font-medium transition-all duration-200 ${s.color}`}
+              >
+                {s.icon}
+                <span>{s.label}</span>
+              </a>
+            ))}
           </div>
         </div>
       </div>
 
       <div className="flex justify-end pt-4">
-        <a 
+        <a
           href="#stats"
           className="group inline-flex items-center gap-2 text-slate-400 hover:text-[#3B83F7] text-sm sm:text-base font-medium transition-colors"
         >

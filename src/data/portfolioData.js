@@ -16,7 +16,6 @@ export const portfolioData = {
     { id: "about", label: "Sobre Mí" },
     { id: "projects", label: "Mis Proyectos" },
     { id: "skills", label: "Habilidades & Herramientas" },
-    { id: "experience", label: "Experiencia" },
     { id: "contact", label: "Contacto" },
     { id: "stats", label: "Estadísticas" }
   ],
@@ -50,14 +49,26 @@ export const portfolioData = {
   ],
   hardSkills: [
     {
+      category: "Lenguajes",
+      skills: [
+        { name: "JavaScript", icon: "Javascript" },
+        { name: "TypeScript", icon: "Typescript" }
+      ]
+    },
+    {
       category: "Frontend",
       skills: [
         { name: "HTML5", icon: "Html5" },
         { name: "CSS3", icon: "Css3" },
-        { name: "JavaScript", icon: "Javascript" },
-        { name: "TypeScript", icon: "Typescript" },
         { name: "Vite", icon: "Vite" },
         { name: "Tailwind CSS", icon: "Tailwind" }
+      ]
+    },
+    {
+      category: "Backend",
+      skills: [
+        { name: "MySQL", icon: "Database" },
+        { name: "NoSQL", icon: "Database" }
       ]
     },
     {

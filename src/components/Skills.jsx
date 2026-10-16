@@ -200,10 +200,10 @@ export const Skills = ({ isDark }) => {
       {/* Navigation link */}
       <div className="flex justify-end pt-4">
         <a 
-          href="#experience"
+          href="#contact"
           className="group inline-flex items-center gap-2 text-slate-400 hover:text-[#3B83F7] text-sm sm:text-base font-medium transition-colors"
         >
-          <span>Experiencia</span>
+          <span>Contacto</span>
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
         </a>
       </div>
