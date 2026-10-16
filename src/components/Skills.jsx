@@ -18,11 +18,20 @@ import {
   Css3Icon, 
   JavascriptIcon, 
   TypescriptIcon, 
+  ReactIcon,
   ViteIcon, 
   TailwindIcon, 
   GitIcon, 
-  GithubIcon, 
-  VsCodeIcon 
+  GithubIcon,
+  NodejsIcon,
+  ExpressIcon,
+  MysqlIcon,
+  PostgresqlIcon,
+  SqliteIcon,
+  AntigravityIcon,
+  ClaudeIcon,
+  GeminiIcon,
+  ChatgptIcon
 } from './Icons';
 
 // Helper for rendering Hard Skill icons
@@ -36,6 +45,8 @@ const renderSkillIcon = (iconName) => {
       return <JavascriptIcon className="w-5 h-5 flex-shrink-0 rounded-xs" />;
     case 'Typescript':
       return <TypescriptIcon className="w-5 h-5 flex-shrink-0 rounded-xs" />;
+    case 'React':
+      return <ReactIcon className="w-5 h-5 flex-shrink-0" />;
     case 'Vite':
       return <ViteIcon className="w-5 h-5 flex-shrink-0" />;
     case 'Tailwind':
@@ -44,8 +55,24 @@ const renderSkillIcon = (iconName) => {
       return <GitIcon className="w-5 h-5 flex-shrink-0" />;
     case 'Github':
       return <GithubIcon className="w-5 h-5 flex-shrink-0 text-slate-800 dark:text-slate-200" />;
-    case 'VsCode':
-      return <VsCodeIcon className="w-5 h-5 flex-shrink-0" />;
+    case 'Nodejs':
+      return <NodejsIcon className="w-5 h-5 flex-shrink-0" />;
+    case 'Express':
+      return <ExpressIcon className="w-5 h-5 flex-shrink-0" />;
+    case 'Mysql':
+      return <MysqlIcon className="w-5 h-5 flex-shrink-0" />;
+    case 'Postgresql':
+      return <PostgresqlIcon className="w-5 h-5 flex-shrink-0" />;
+    case 'Sqlite':
+      return <SqliteIcon className="w-5 h-5 flex-shrink-0" />;
+    case 'Antigravity':
+      return <AntigravityIcon className="w-5 h-5 flex-shrink-0" />;
+    case 'Claude':
+      return <ClaudeIcon className="w-5 h-5 flex-shrink-0" />;
+    case 'Gemini':
+      return <GeminiIcon className="w-5 h-5 flex-shrink-0" />;
+    case 'Chatgpt':
+      return <ChatgptIcon className="w-5 h-5 flex-shrink-0" />;
     case 'Database':
       return <Database className="w-5 h-5 flex-shrink-0 text-[#3B83F7]" />;
     case 'Wrench':

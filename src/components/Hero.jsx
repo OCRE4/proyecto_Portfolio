@@ -42,11 +42,32 @@ export const Hero = ({ isDark }) => {
       </h2>
 
       {/* Detailed Bio Description */}
-      <p className={`text-base sm:text-lg leading-relaxed max-w-3xl mb-8 font-normal ${
+      <p className={`text-base sm:text-lg leading-relaxed max-w-3xl mb-6 font-normal ${
         isDark ? 'text-slate-300' : 'text-slate-600'
       }`}>
         {bio}
       </p>
+
+      {/* CTA Buttons */}
+      <div className="flex flex-wrap items-center gap-4 mb-8">
+        <a
+          href="#projects"
+          className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-[#3B83F7] hover:bg-[#2563EB] text-white font-medium text-sm sm:text-base shadow-lg shadow-[#3B83F7]/25 hover:shadow-[#3B83F7]/40 hover:-translate-y-0.5 transition-all duration-200"
+        >
+          <span>Ver Proyectos</span>
+          <ArrowRight className="w-4 h-4" />
+        </a>
+        <a
+          href="#contact"
+          className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl border text-sm sm:text-base font-medium transition-all duration-200 ${
+            isDark
+              ? 'border-white/10 text-slate-300 hover:text-white hover:bg-white/5 hover:border-white/20'
+              : 'border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-100 hover:border-slate-400'
+          }`}
+        >
+          <span>Contáctame</span>
+        </a>
+      </div>
 
       {/* Location, Contact & Social Card moved here */}
       <div className={`p-5 rounded-2xl border flex flex-wrap items-center justify-between gap-4 mb-12 max-w-3xl transition-all ${

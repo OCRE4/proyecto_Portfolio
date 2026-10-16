@@ -52,14 +52,14 @@ export const portfolioData = {
       category: "Lenguajes",
       skills: [
         { name: "JavaScript", icon: "Javascript" },
-        { name: "TypeScript", icon: "Typescript" }
+        { name: "TypeScript", icon: "Typescript" },
+        { name: "HTML5", icon: "Html5" },
+        { name: "CSS3", icon: "Css3" }
       ]
     },
     {
       category: "Frontend",
       skills: [
-        { name: "HTML5", icon: "Html5" },
-        { name: "CSS3", icon: "Css3" },
         { name: "Vite", icon: "Vite" },
         { name: "Tailwind CSS", icon: "Tailwind" }
       ]
@@ -67,16 +67,27 @@ export const portfolioData = {
     {
       category: "Backend",
       skills: [
-        { name: "MySQL", icon: "Database" },
-        { name: "NoSQL", icon: "Database" }
+        { name: "Node.js", icon: "Nodejs" },
+        { name: "Express", icon: "Express" },
+        { name: "PostgreSQL", icon: "Postgresql" },
+        { name: "MySQL", icon: "Mysql" },
+        { name: "SQLite", icon: "Sqlite" }
       ]
     },
     {
       category: "Herramientas & Control de Versiones",
       skills: [
         { name: "Git", icon: "Git" },
-        { name: "GitHub", icon: "Github" },
-        { name: "VS Code", icon: "VsCode" }
+        { name: "GitHub", icon: "Github" }
+      ]
+    },
+    {
+      category: "Herramientas de IA",
+      skills: [
+        { name: "Antigravity", icon: "Antigravity" },
+        { name: "Claude", icon: "Claude" },
+        { name: "Géminis", icon: "Gemini" },
+        { name: "ChatGPT", icon: "Chatgpt" }
       ]
     },
     {

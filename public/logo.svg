@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="none" className="w-full h-full">
+  <defs>
+    <!-- Filtro de resplandor azul neón -->
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur1" />
+      <feGaussianBlur stdDeviation="14" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Gradiente azul para la sombra 3D -->
+    <linearGradient id="blue-shadow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B83F7" />
+      <stop offset="100%" stop-color="#1D4ED8" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(0, 0)">
+    <!-- CAPA INFERIOR: Sombra 3D desplazada con resplandor neón -->
+    <g transform="translate(4, 7)" opacity="0.95" filter="url(#neon-glow)">
+      <!-- Letra L (Sombra) -->
+      <path
+        d="M 148 385 
+           L 290 385 
+           L 298 355 
+           L 240 358 
+           L 194 358 
+           L 264 150 
+           L 222 150 
+           L 170 274 
+           L 173 298 
+           Z"
+        fill="url(#blue-shadow-grad)"
+      />
+      <!-- Elemento B / Spire (Sombra) -->
+      <path
+        d="M 204 330 
+           L 242 356 
+           L 368 235 
+           L 355 210 
+           L 305 210 
+           L 338 126 
+           L 347 118 
+           L 370 48 
+           L 353 90 
+           L 353 132 
+           Z
+           M 258 295 
+           L 318 238 
+           L 285 238 
+           Z"
+        fill="url(#blue-shadow-grad)"
+      />
+    </g>
+
+    <!-- CAPA SUPERIOR: Logo blanco frontal -->
+    <g>
+      <!-- Letra L Frontal -->
+      <path
+        d="M 148 385 
+           L 290 385 
+           L 298 355 
+           L 240 358 
+           L 194 358 
+           L 264 150 
+           L 222 150 
+           L 170 274 
+           L 173 298 
+           Z"
+        fill="#FFFFFF"
+      />
+      <!-- Elemento B / Spire Frontal con agujero interior -->
+      <path
+        d="M 204 330 
+           L 242 356 
+           L 368 235 
+           L 355 210 
+           L 305 210 
+           L 338 126 
+           L 347 118 
+           L 370 48 
+           L 353 90 
+           L 353 132 
+           Z
+           M 258 295 
+           L 318 238 
+           L 285 238 
+           Z"
+        fill="#FFFFFF"
+        fill-rule="evenodd"
+      />
+    </g>
+  </g>
+</svg>
