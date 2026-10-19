@@ -26,8 +26,11 @@ export const About = ({ isDark }) => {
         <p className={`text-base leading-relaxed max-w-4xl font-normal ${
           isDark ? 'text-slate-300' : 'text-slate-600'
         }`}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </p>
+Soy un desarrollador web enfocado en la planificación, arquitectura y construcción de aplicaciones modernas utilizando herramientas y agentes de IA.
+
+Mi fuerte está en la preparación metódica de cada proyecto: defino la estructura, el flujo de usuario, la interfaz estética y la pila tecnológica adecuada (como React, TypeScript, Vite y Tailwind CSS). Utilizo agentes de IA como aceleradores de desarrollo, supervisando minuciosamente la calidad, la lógica interna y el rendimiento para entregar software optimizado, funcional y libre de errores.
+
+Me caracterizo por un enfoque autónomo en la resolución de problemas, una gran atención al detalle visual y una alta disciplina y organización en cada etapa del trabajo.        </p>
       </div>
 
       {/* Cards Grid: Education and Experience */}
