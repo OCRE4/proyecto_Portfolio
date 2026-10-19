@@ -28,7 +28,7 @@ export const Contact = ({ isDark }) => {
   ];
 
   return (
-    <section id="contact" className={`pt-12 pb-16 border-t scroll-mt-2 sm:scroll-mt-4 ${
+    <section id="contact" className={`pt-12 pb-16 border-t scroll-mt-24 ${
       isDark ? 'border-white/10' : 'border-slate-200'
     }`}>
       <div className="flex items-center gap-3 mb-8">
