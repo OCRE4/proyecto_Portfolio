@@ -51,7 +51,7 @@ export function App() {
       />
 
       {/* Contenedor Principal con Sidebar y Secciones */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 flex-1 flex flex-col">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col">
         <div className="flex gap-8 lg:gap-12 flex-1">
           {/* Panel Lateral Izquierdo */}
           <Sidebar 
@@ -61,7 +61,7 @@ export function App() {
           />
 
           {/* Área Principal de Contenido */}
-          <main className="flex-1 min-w-0 max-w-full">
+          <main className="flex-1 min-w-0 max-w-full pt-24 pb-12">
             <Hero isDark={isDark} />
             <About isDark={isDark} />
             <Projects isDark={isDark} />
