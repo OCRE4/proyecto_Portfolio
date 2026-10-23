@@ -88,8 +88,8 @@ export const Sidebar = ({ activeSection, onSelectSection, isDark }) => {
                     isActive 
                       ? 'bg-[#3B83F7] shadow-[0_0_8px_#3B83F7] scale-125' 
                       : isDark 
-                        ? 'bg-transparent group-hover:bg-slate-600'
-                        : 'bg-transparent group-hover:bg-slate-300'
+                        ? 'bg-white/20 group-hover:bg-[#3B83F7]'
+                        : 'bg-slate-300 group-hover:bg-[#3B83F7]'
                   }`} />
                   <span className="truncate">{sec.label}</span>
                 </a>

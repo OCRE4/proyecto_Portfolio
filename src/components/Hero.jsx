@@ -30,14 +30,14 @@ export const Hero = ({ isDark }) => {
       </div>
 
       {/* Main Name Heading */}
-      <h1 className={`font-bebas text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wide mb-3 leading-none ${
+      <h1 className={`font-bebas text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wide mb-3 leading-none glow-text ${
         isDark ? 'text-[#F6F8FB]' : 'text-slate-900'
       }`}>
         {name}
       </h1>
 
       {/* Subtitle / Punchline */}
-      <h2 className="font-bebas text-2xl sm:text-3xl md:text-4xl tracking-wider text-[#3B83F7] glow-text mb-6">
+      <h2 className="font-bebas text-2xl sm:text-3xl md:text-4xl tracking-wider text-[#3B83F7] mb-6">
         {punchline}
       </h2>
 

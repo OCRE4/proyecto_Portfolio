@@ -4,7 +4,7 @@ import { portfolioData } from '../data/portfolioData';
 
 export const About = ({ isDark }) => {
   return (
-    <section id="about" className={`py-16 border-t scroll-mt-24 ${
+    <section id="about" className={`py-16 border-t scroll-mt-2 ${
       isDark ? 'border-white/10' : 'border-slate-200'
     }`}>
       {/* Title with icon matching all other sections */}
