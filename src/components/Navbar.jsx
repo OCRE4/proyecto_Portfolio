@@ -75,30 +75,20 @@ export const Navbar = ({ isDark, setIsDark, activeSection }) => {
     };
   }, []);
 
-  // Evita el scroll del body cuando el menú móvil expandido está abierto
-  useEffect(() => {
-    if (isMobileOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isMobileOpen]);
+  // Manejar navegación a una sección en móvil con scroll preciso considerando el navbar
+  const handleNavClick = (e, sectionId) => {
+    e.preventDefault();
+    setIsMobileOpen(false);
 
-  // Cerrar al hacer clic fuera
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (navRef.current && !navRef.current.contains(e.target)) {
-        setIsMobileOpen(false);
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const yOffset = -80; // Margen para el navbar flotante
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
       }
-    };
-    if (isMobileOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isMobileOpen]);
+    }, 150);
+  };
 
   // Sección activa actual
   const currentSectionData = portfolioData.sections.find((s) => s.id === activeSection) || portfolioData.sections[0];
@@ -155,7 +145,7 @@ export const Navbar = ({ isDark, setIsDark, activeSection }) => {
             {/* Logo 'LB.' con indicador dinámico */}
             <a
               href="#intro"
-              onClick={() => setIsMobileOpen(false)}
+              onClick={(e) => handleNavClick(e, 'intro')}
               className="group flex items-center gap-1.5 pl-1.5 font-bebas text-2xl tracking-widest transition-transform hover:scale-105 active:scale-95"
             >
               <span className="text-[#3B83F7] glow-text transition-colors duration-300">
@@ -279,7 +269,7 @@ export const Navbar = ({ isDark, setIsDark, activeSection }) => {
                       <motion.a
                         key={sec.id}
                         href={`#${sec.id}`}
-                        onClick={() => setIsMobileOpen(false)}
+                        onClick={(e) => handleNavClick(e, sec.id)}
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: idx * 0.04 }}
