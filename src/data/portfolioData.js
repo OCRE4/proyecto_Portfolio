@@ -20,9 +20,8 @@ export const portfolioData = {
     { id: "stats", label: "Estadísticas" }
   ],
   stats: [
-    { number: "+3", label: "Años de Experiencia", icon: "Clock" },
-    { number: "+25", label: "Proyectos Realizados", icon: "FolderGit2" },
-    { number: "+15", label: "Tecnologías Dominadas", icon: "Code2" },
+    { number: "2", label: "Años de Experiencia", icon: "Clock" },
+    { number: "1", label: "Proyectos Realizados", icon: "FolderGit2" },
     { number: "100%", label: "Compromiso & Calidad", icon: "CheckCircle2" }
   ],
   projects: [
